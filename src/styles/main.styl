@@ -1,10 +1,12 @@
 @import 'nib' // CSS3 extensions for Stylus: http://visionmedia.github.io/nib/
 
+@import url(http://fonts.googleapis.com/css?family=Oxygen:400,700);
+
 // variables!
 
 slide_width = 640px
 slide_height = 480px
-slide_background = #eaeaea
+slide_background = #fff
 
 slide_transition_length = .6s
 slide_transition_easing = ease
@@ -123,10 +125,15 @@ article
   @media print
     transform: none !important
 
+// bespoke-secondary styles
+
+.bespoke-slide aside
+  display: none
+
 // content styles
 
 body
-  font-family: helvetica, arial, sans-serif
+  font-family: 'Oxygen', helvetica, arial, sans-serif
   font-size: 18px
   color: #404040
 
@@ -164,3 +171,44 @@ p
 a
   color: #0089f3
   text-decoration: none
+
+
+// custom styles
+
+.in-place-transition
+  .bespoke-bullet-inactive
+    opacity: 0
+    display: none
+    li&
+      transform: translateX(0)
+
+  .bespoke-bullet-active
+    opacity: 0
+    display: none
+
+  .bespoke-bullet-current
+    opacity: 1
+    display: inherit
+
+.highlight
+  color: #900
+
+.dim
+  color: #c0c0c0
+
+.dummy
+  display:none
+
+.bespoke-slide > *
+  z-index: 10
+
+.background
+  position: absolute
+  top: 0
+  left: 0
+  width: slide_width
+  height: slide_height
+  z-index: 1
+  color: #e0e0e0
+  font-size: slide_height - 80px
+  line-height: slide_height
